@@ -10,8 +10,8 @@ import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-@Entity 
-public class Recipe extends BaseEntity{
+@Entity
+public class Recipe extends BaseEntity {
 
 	private String description;
 	private Integer prepTime;
@@ -24,14 +24,14 @@ public class Recipe extends BaseEntity{
 	private Byte[] image;
 	@OneToOne(cascade = CascadeType.ALL)
 	private Notes notes;
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "recipe")
-	private Set<Ingredient>ingredients;
-	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+	private Set<Ingredient> ingredients;
+
 	@Enumerated(EnumType.STRING)
 	private Difficulty difficulty;
-	
+
 	public Recipe(String description, Integer prepTime, Integer cookTime, Integer servings, String source, String url,
-			String directions, Byte[] image, Notes notes,Difficulty difficulty) {
+			String directions, Byte[] image, Notes notes, Difficulty difficulty) {
 		super();
 		this.description = description;
 		this.prepTime = prepTime;
