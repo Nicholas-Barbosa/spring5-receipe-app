@@ -6,7 +6,10 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -29,6 +32,10 @@ public class Recipe extends BaseEntity {
 
 	@Enumerated(EnumType.STRING)
 	private Difficulty difficulty;
+
+	@ManyToMany
+	@JoinTable(name = "recipe_category", joinColumns = @JoinColumn(name = "recipe_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
+	private Set<Category> categories;
 
 	public Recipe(String description, Integer prepTime, Integer cookTime, Integer servings, String source, String url,
 			String directions, Byte[] image, Notes notes, Difficulty difficulty) {
@@ -93,4 +100,7 @@ public class Recipe extends BaseEntity {
 		return difficulty;
 	}
 
+	public Set<Category> getCategories() {
+		return categories;
+	}
 }
