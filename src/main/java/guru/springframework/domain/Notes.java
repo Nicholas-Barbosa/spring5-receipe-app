@@ -1,4 +1,4 @@
-package guru.springframework.joke.domain;
+package guru.springframework.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Lob;

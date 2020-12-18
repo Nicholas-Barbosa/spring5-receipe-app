@@ -1,10 +1,10 @@
-package guru.springframework.joke.repositories;
+package guru.springframework.repositories;
 
 import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
-import guru.springframework.joke.domain.UnitOfMeasure;
+import guru.springframework.domain.UnitOfMeasure;
 
 public interface UnitOfMeasureRepository extends CrudRepository<UnitOfMeasure, Long> {
 

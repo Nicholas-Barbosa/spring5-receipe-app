@@ -1,10 +1,10 @@
-package guru.springframework.joke.controllers;
+package guru.springframework.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import guru.springframework.joke.repositories.CategoryRepository;
-import guru.springframework.joke.repositories.UnitOfMeasureRepository;
+import guru.springframework.repositories.CategoryRepository;
+import guru.springframework.repositories.UnitOfMeasureRepository;
 
 @Controller
 public class IndexController {

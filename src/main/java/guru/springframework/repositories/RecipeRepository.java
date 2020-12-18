@@ -1,8 +1,8 @@
-package guru.springframework.joke.repositories;
+package guru.springframework.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 
-import guru.springframework.joke.domain.Recipe;
+import guru.springframework.domain.Recipe;
 
 public interface RecipeRepository extends CrudRepository<Recipe, Long> {
 
