@@ -13,7 +13,9 @@ public class Category extends BaseEntity{
 	@ManyToMany(mappedBy = "categories")
 	private Set<Recipe>recipes;
 
-	
+	public Category() {
+		// TODO Auto-generated constructor stub
+	}
 	public Category(String description, Set<Recipe> recipes) {
 		super();
 		this.description = description;
@@ -26,6 +28,11 @@ public class Category extends BaseEntity{
 
 	public Set<Recipe> getRecipes() {
 		return recipes;
+	}
+
+	@Override
+	public String toString() {
+		return "Category [description=" + description + ", recipes=" + recipes + "]";
 	}
 	
 	
