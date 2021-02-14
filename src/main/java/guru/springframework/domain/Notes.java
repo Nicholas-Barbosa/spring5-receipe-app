@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 
+import lombok.Data;
+
+@Data
 @Entity
 public class Notes extends BaseEntity {
 
@@ -16,14 +19,8 @@ public class Notes extends BaseEntity {
 		super();
 		this.recipe = recipe;
 		this.recipeNotes = recipeNotes;
+		
 	}
 
-	public Recipe getRecipe() {
-		return recipe;
-	}
-
-	public String getRecipeNotes() {
-		return recipeNotes;
-	}
 
 }

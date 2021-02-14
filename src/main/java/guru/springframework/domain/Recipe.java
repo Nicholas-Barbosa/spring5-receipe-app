@@ -13,6 +13,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import lombok.Data;
+
+@Data
 @Entity
 public class Recipe extends BaseEntity {
 
@@ -52,55 +55,13 @@ public class Recipe extends BaseEntity {
 		this.difficulty = difficulty;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
-	public Integer getPrepTime() {
-		return prepTime;
-	}
-
-	public Integer getCookTime() {
-		return cookTime;
-	}
-
-	public Integer getServings() {
-		return servings;
-	}
-
-	public String getSource() {
-		return source;
-	}
-
-	public String getUrl() {
-		return url;
-	}
-
-	public String getDirections() {
-		return directions;
-	}
-
-	public Byte[] getImage() {
-		return image;
-	}
-
-	public Notes getNotes() {
-		return notes;
-	}
-
-	public Set<Ingredient> getIngredients() {
-		return ingredients;
+	public void setNotes(Notes notes) {
+		this.notes = notes;
+		notes.setRecipe(this);
 	}
 
 	public void setIngredients(Set<Ingredient> ingredients) {
 		this.ingredients = ingredients;
 	}
 
-	public Difficulty getDifficulty() {
-		return difficulty;
-	}
-
-	public Set<Category> getCategories() {
-		return categories;
-	}
 }
