@@ -19,8 +19,10 @@ public class Notes extends BaseEntity {
 		super();
 		this.recipe = recipe;
 		this.recipeNotes = recipeNotes;
-		
+
 	}
 
-
+	public void setRecipe(Recipe recipe) {
+		this.recipe = recipe;
+	}
 }

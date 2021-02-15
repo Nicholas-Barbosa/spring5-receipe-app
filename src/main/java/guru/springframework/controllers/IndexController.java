@@ -20,8 +20,8 @@ public class IndexController {
 
 	@RequestMapping({ "/", "", "index" })
 	public String getIndexPage() {
-		categoryRepository.findByDescription("American").ifPresent(System.out::println);
-		unitRepository.findByDescription("Teaspoon").ifPresent(System.out::println);
+//		categoryRepository.findByDescription("American").ifPresent(System.out::println);
+//		unitRepository.findByDescription("Teaspoon").ifPresent(System.out::println);
 		return "index";
 	}
 }

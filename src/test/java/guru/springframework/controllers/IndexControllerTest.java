@@ -1,11 +1,13 @@
 package guru.springframework.controllers;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.ui.Model;
 
 public class IndexControllerTest {
@@ -13,22 +15,21 @@ public class IndexControllerTest {
 	@Mock
 	Model model;
 
-	@Mock
-	IndexController indexController;
+	IndexController controller;
 
 	@Before
-	public void setUp() throws Exception {
-		MockitoAnnotations.openMocks(this);
-		model.addAttribute("1Z0-819", "PASSED");
+	public void setUp() {
+		MockitoAnnotations.initMocks(this);
+
+		controller = new IndexController(null, null);
 	}
 
 	@Test
-	public void test() {
-		System.out.println("IndexPage " + indexController.getClass());
-		var map = model.asMap();
-		map.forEach((k, v) -> System.out.println(k + ":" + v));
-		assertEquals(map.size(), 0);
+	public void testMockMVC() throws Exception {
+		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
 
+		mockMvc.perform(MockMvcRequestBuilders.get("/")).andExpect(MockMvcResultMatchers.status().is(200))
+				.andExpect(MockMvcResultMatchers.view().name("index"));
 	}
 
 }
